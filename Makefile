@@ -5,25 +5,35 @@ all:
 make-lotus:
 	@scripts/make-lotus.ssh
 
-install-lotus-service:
+install-lotus:
 	@sudo cp configs/lotus.service /etc/systemd/system/
 	@sudo systemctl enable lotus
 
-install-miner-service:
+install-miner:
 	@sudo cp configs/lotus-storage-miner.service /etc/systemd/system/
 	@sudo systemctl enable lotus-storage-miner
 
-start-lotus-service:
+uninstall-lotus:
+	@sudo systemctl disable lotus
+	@sudo rm /etc/systemd/system/lotus.service
+
+uninstall-miner:
+	@sudo systemctl disable lotus-storage-miner
+	@sudo rm /etc/systemd/system/lotus-storage-miner.service
+
+start-lotus:
 	@sudo systemctl start lotus
 
-start-miner-service:
+start-miner:
 	@sudo systemctl start lotus
 
-stop-lotus-service:
+stop-lotus:
 	@sudo systemctl stop lotus
 
-stop-miner-service:
+stop-miner:
 	@sudo systemctl stop lotus
 
-install-services: install-lotus-service install-miner-service
-start-services: start-lotus-service start-miner-service
+install-all: install-lotus install-miner
+uninstall-all: uninstall-lotus uninstall-miner
+start-all: start-lotus start-miner
+stop-all: stop-lotus stop-miner

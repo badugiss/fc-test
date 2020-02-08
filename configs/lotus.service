@@ -3,7 +3,7 @@ Description=Lotus Daemon
 After=syslog.target network.target
 
 [Service]
-ExecStart=/usr/local/bin/lotus
+ExecStart=/usr/local/bin/lotus daemon
 ExecReload=/bin/kill -HUP $MAINPID
 KillMode=process
 Restart=on-failure

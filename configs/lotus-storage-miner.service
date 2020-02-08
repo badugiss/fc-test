@@ -3,7 +3,7 @@ Description=Lotus Storage Miner
 After=syslog.target network.target
 
 [Service]
-ExecStart=/usr/local/bin/lotus-storage-miner
+ExecStart=/usr/local/bin/lotus-storage-miner run
 ExecReload=/bin/kill -HUP $MAINPID
 KillMode=process
 Restart=on-failure
