@@ -9,6 +9,7 @@ KillMode=process
 Restart=on-failure
 RestartSec=1s
 User=badugiss
+Environment=BELLMAN_CUSTOM_GPU=NVIDIA Tesla V100:5120
 
 [Install]
 WantedBy=multi-user.target
