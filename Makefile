@@ -25,13 +25,13 @@ start-lotus:
 	@sudo systemctl start lotus
 
 start-miner:
-	@sudo systemctl start lotus
+	@sudo systemctl start lotus-storage-miner
 
 stop-lotus:
 	@sudo systemctl stop lotus
 
 stop-miner:
-	@sudo systemctl stop lotus
+	@sudo systemctl stop lotus-storage-miner
 
 install-all: install-lotus install-miner
 uninstall-all: uninstall-lotus uninstall-miner
